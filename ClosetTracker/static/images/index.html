@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Images</title>
+    <meta name="description" content="Images – A-Frame">
+    <script src="../../../dist/aframe-master.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="blazer" src="blazer.png">
+        <img id="boots" src="boots.png">
+        <img id="bunnySlippers" src="bunnySlippers.png">
+        <img id="cargoShorts" src="cargoShorts.png">
+        <img id="dress" src="dress.png">
+        <img id="scarf" src="scarf.png">
+        <img id="vest" src="vest.png">
+        <img id="fullCloset" src="fullCloset.jpg">
+      </a-assets>
+      
+      <a-entity position="0 0 4">
+      	<a-camera></a-camera>
+      </a-entity>
+
+      <a-image position="0 0 -100" width="34" height="40" src="#blazer"></a-image>
+      <a-image position="90 0 -100" width="48" height="36" src="#boots"></a-image>
+      <a-image position="180 0 -100" width="30" height="30" src="#bunnySlippers"></a-image>
+      <a-image position="270 0 -100" width="30" height="30" src="#cargoShorts"></a-image>
+      <a-image position="-90 0 -100" width="54" height="83" src="#dress"></a-image>
+      <a-image position="-180 0 -100" width="41" height="55" src="#scarf"></a-image>
+      <a-image position="-270 0 -100" width="27" height="50" src="#vest"></a-image>
+
+      <!-- Hide a-image element until the texture has actually been loaded, then transition
+           inside the camera view -->
+      <a-image id="eventImage" opacity="0.0" position="0 1 -50" width="16" height="4.5"
+               src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Big_Wood,_N2.JPG">
+
+        <a-animation begin="material-texture-loaded" attribute="opacity" to="1.0"
+                     dur="2000"></a-animation>
+        <a-animation begin="material-texture-loaded" attribute="rotation" from="180 0 0"
+                     to="0 0 0" dur="2500"> </a-animation>
+        <a-animation begin="material-texture-loaded" attribute="position" to="0 1 -8"
+                     dur="3000"> </a-animation>
+      </a-image>
+      <a-sky src="#fullCloset"></a-sky>
+    </a-scene>
+  </body>
+</html>
